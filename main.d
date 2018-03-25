@@ -1,0 +1,9 @@
+.\main.o: main.c
+.\main.o: tm4c123gh6pm.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\main.o: PLL_Init.h
+.\main.o: SysTick.h
+.\main.o: UART_Init.h
+.\main.o: GPIO_Init.h
+.\main.o: TIMER_Init.h

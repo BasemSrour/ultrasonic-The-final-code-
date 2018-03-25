@@ -1,0 +1,171 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\basom\Desktop\ultrasonic [The final code]\ultrasonic.uvproj
+Project File Date:  03/25/2018
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling startup_TM4C123.s...
+compiling GPIO_Init.c...
+compiling main.c...
+compiling PLL_Init.c...
+compiling SysTick.c...
+compiling TIMER_Init.c...
+compiling UART_Init.c...
+linking...
+Program Size: Code=5116 RO-data=636 RW-data=0 ZI-data=608  
+".\ultrasonic.axf" - 0 Error(s), 0 Warning(s).
+...
+Program Size: Code=5116 RO-data=636 RW-data=0 ZI-data=608  
+".\ultrasonic.axf" - 0 Error(s), 1 Warning(s).
+OE;
+GPIO_Init.c(23): error:  #20: identifier "GPIO_PORTA_DIR_R" is undefined
+        GPIO_PORTA_DIR_R |= 0xFC; // PA2, PA3, PA4, PA5, PA6 & PA7
+GPIO_Init.c(24): error:  #20: identifier "GPIO_PORTE_DIR_R" is undefined
+        GPIO_PORTE_DIR_R |= 0x0F; // PE0, PE1, PE2 & PE3
+GPIO_Init.c(31): error:  #20: identifier "GPIO_PORTA_AFSEL_R" is undefined
+        GPIO_PORTA_AFSEL_R &= ~0xFC; // PA2, PA3, PA4, PA5, PA6 & PA7
+GPIO_Init.c(32): error:  #20: identifier "GPIO_PORTE_AFSEL_R" is undefined
+        GPIO_PORTE_AFSEL_R &= ~0x0F; // PE0, PE1, PE2 & PE3
+GPIO_Init.c(35): error:  #20: identifier "GPIO_PORTA_PCTL_R" is undefined
+        GPIO_PORTA_PCTL_R &= 0x000000FF; // PA2, PA3, PA4, PA5, PA6 & PA7
+GPIO_Init.c(36): error:  #20: identifier "GPIO_PORTE_PCTL_R" is undefined
+        GPIO_PORTE_PCTL_R &= 0xFFFF0000; // PE0, PE1, PE2 & PE3
+GPIO_Init.c(54): error:  #20: identifier "GPIO_PORTA_AMSEL_R" is undefined
+        GPIO_PORTA_AMSEL_R &= ~0xFC;
+GPIO_Init.c(55): error:  #20: identifier "GPIO_PORTA_DEN_R" is undefined
+        GPIO_PORTA_DEN_R |= 0xFC;
+GPIO_Init.c(58): error:  #20: identifier "GPIO_PORTE_AMSEL_R" is undefined
+        GPIO_PORTE_AMSEL_R &= ~0x0F;
+GPIO_Init.c(59): error:  #20: identifier "GPIO_PORTE_DEN_R" is undefined
+        GPIO_PORTE_DEN_R |= 0x0F;
+GPIO_Init.c(78): error:  #20: identifier "GPIO_PORTA_LOCK_R" is undefined
+        GPIO_PORTA_LOCK_R = 0x4C4F434B;   // unlock GPIO Port A
+GPIO_Init.c(79): error:  #20: identifier "GPIO_PORTA_CR_R" is undefined
+    GPIO_PORTA_CR_R = 0xFC;           // allow changes to PA2, PA3, PA4, PA5, PA6 & PA7
+GPIO_Init.c(82): error:  #20: identifier "GPIO_PORTE_LOCK_R" is undefined
+        GPIO_PORTE_LOCK_R = 0x4C4F434B;   // unlock GPIO Port E
+GPIO_Init.c(83): error:  #20: identifier "GPIO_PORTE_CR_R" is undefined
+    GPIO_PORTE_CR_R = 0x0F;           // allow changes to PE0, PE1, PE2 & PE3
+GPIO_Init.c(84): warning:  #1-D: last line of file ends without a newline
+  }
+GPIO_Init.c: 1 warning, 17 errors
+compiling main.c...
+main.c(60): error:  #20: identifier "GPIO_PORTA_DATA_R" is undefined
+        GPIO_PORTA_DATA_R &= ~0xFC;
+main.c(61): error:  #20: identifier "GPIO_PORTE_DATA_R" is undefined
+        GPIO_PORTE_DATA_R &= ~0x0F;
+main.c: 0 warnings, 2 errors
+compiling PLL_Init.c...
+compiling SysTick.c...
+compiling TIMER_Init.c...
+TIMER_Init.c(35): error:  #20: identifier "SYSCTL_RCGCWTIMER_R" is undefined
+        SYSCTL_RCGCWTIMER_R |= 0x01;
+TIMER_Init.c(37): error:  #20: identifier "SYSCTL_RCGCTIMER_R" is undefined
+        delay = SYSCTL_RCGCTIMER_R;
+TIMER_Init.c(62): error:  #20: identifier "SYSCTL_RCGC2_R" is undefined
+        SYSCTL_RCGC2_R |= SYSCTL_RCGC2_GPIOC;
+TIMER_Init.c(62): error:  #20: identifier "SYSCTL_RCGC2_GPIOC" is undefined
+        SYSCTL_RCGC2_R |= SYSCTL_RCGC2_GPIOC;
+TIMER_Init.c(67): error:  #20: identifier "SYSCTL_RCGC2_GPIOF" is undefined
+        SYSCTL_RCGC2_R |= SYSCTL_RCGC2_GPIOF;
+TIMER_Init.c(72): error:  #20: identifier "SYSCTL_RCGC2_GPIOB" is undefined
+        SYSCTL_RCGC2_R |= SYSCTL_RCGC2_GPIOB;
+TIMER_Init.c(81): error:  #20: identifier "GPIO_PORTC_DIR_R" is undefined
+        GPIO_PORTC_DIR_R &= ~0x30;
+TIMER_Init.c(84): error:  #20: identifier "GPIO_PORTF_DIR_R" is undefined
+        GPIO_PORTF_DIR_R &= ~0x0F;
+TIMER_Init.c(87): error:  #20: identifier "GPIO_PORTB_DIR_R" is undefined
+        GPIO_PORTB_DIR_R &= ~0x0F;
+TIMER_Init.c(95): error:  #20: identifier "GPIO_PORTC_AFSEL_R" is undefined
+        GPIO_PORTC_AFSEL_R |= 0x30;
+TIMER_Init.c(97): error:  #20: identifier "GPIO_PORTC_PCTL_R" is undefined
+        GPIO_PORTC_PCTL_R = (GPIO_PORTC_PCTL_R & 0xFF00FFFF) + 0x00770000;
+TIMER_Init.c(100): error:  #20: identifier "GPIO_PORTF_AFSEL_R" is undefined
+        GPIO_PORTF_AFSEL_R |= 0x0F;
+TIMER_Init.c(102): error:  #20: identifier "GPIO_PORTF_PCTL_R" is undefined
+        GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R & 0xFFFF0000) + 0x00007777;
+TIMER_Init.c(105): error:  #20: identifier "GPIO_PORTB_AFSEL_R" is undefined
+        GPIO_PORTB_AFSEL_R |= 0x0F;
+TIMER_Init.c(107): error:  #20: identifier "GPIO_PORTB_PCTL_R" is undefined
+        GPIO_PORTB_PCTL_R = (GPIO_PORTB_PCTL_R & 0xFFFF0000) + 0x00007777;
+TIMER_Init.c(114): error:  #20: identifier "GPIO_PORTC_AMSEL_R" is undefined
+        GPIO_PORTC_AMSEL_R &= ~0x30;
+TIMER_Init.c(115): error:  #20: identifier "GPIO_PORTC_DEN_R" is undefined
+        GPIO_PORTC_DEN_R |= 0x30;
+TIMER_Init.c(118): error:  #20: identifier "GPIO_PORTF_AMSEL_R" is undefined
+        GPIO_PORTF_AMSEL_R &= ~0x0F;
+TIMER_Init.c(119): error:  #20: identifier "GPIO_PORTF_DEN_R" is undefined
+        GPIO_PORTF_DEN_R |= 0x0F;
+TIMER_Init.c(122): error:  #20: identifier "GPIO_PORTB_AMSEL_R" is undefined
+        GPIO_PORTB_AMSEL_R &= ~0x0F;
+TIMER_Init.c(123): error:  #20: identifier "GPIO_PORTB_DEN_R" is undefined
+        GPIO_PORTB_DEN_R |= 0x0F;
+TIMER_Init.c(129): error:  #20: identifier "GPIO_PORTC_LOCK_R" is undefined
+        GPIO_PORTC_LOCK_R = 0x4C4F434B;   // unlock GPIO Port C
+TIMER_Init.c(130): error:  #20: identifier "GPIO_PORTC_CR_R" is undefined
+    GPIO_PORTC_CR_R = 0x30;           // allow changes to PC4 & PC5
+TIMER_Init.c(133): error:  #20: identifier "GPIO_PORTF_LOCK_R" is undefined
+        GPIO_PORTF_LOCK_R = 0x4C4F434B;   // unlock GPIO Port E
+TIMER_Init.c(134): error:  #20: identifier "GPIO_PORTF_CR_R" is undefined
+    GPIO_PORTF_CR_R = 0x0F;           // allow changes to PF0, PF1, PF2 & PF3
+TIMER_Init.c(137): error:  #20: identifier "GPIO_PORTB_LOCK_R" is undefined
+        GPIO_PORTB_LOCK_R = 0x4C4F434B;   // unlock GPIO Port B
+TIMER_Init.c(138): error:  #20: identifier "GPIO_PORTB_CR_R" is undefined
+    GPIO_PORTB_CR_R = 0x0F;           // allow changes to PB0, PB1, PB2 & PB3
+TIMER_Init.c(145): error:  #20: identifier "WTIMER0_CTL_R" is undefined
+        WTIMER0_CTL_R &= ~0x101;
+TIMER_Init.c(146): error:  #20: identifier "TIMER0_CTL_R" is undefined
+        TIMER0_CTL_R &= ~0x101; 
+TIMER_Init.c(147): error:  #20: identifier "TIMER1_CTL_R" is undefined
+        TIMER1_CTL_R &= ~0x101;
+TIMER_Init.c: 0 warnings, 30 errors
+compiling UART_Init.c...
+UART_Init.c(10): error:  #20: identifier "SYSCTL_RCGC1_R" is undefined
+    SYSCTL_RCGC1_R |= SYSCTL_RCGC1_UART0;
+UART_Init.c(10): error:  #20: identifier "SYSCTL_RCGC1_UART0" is undefined
+    SYSCTL_RCGC1_R |= SYSCTL_RCGC1_UART0;
+UART_Init.c(14): error:  #20: identifier "SYSCTL_RCGC2_R" is undefined
+        SYSCTL_RCGC2_R |= SYSCTL_RCGC2_GPIOA;
+UART_Init.c(14): error:  #20: identifier "SYSCTL_RCGC2_GPIOA" is undefined
+        SYSCTL_RCGC2_R |= SYSCTL_RCGC2_GPIOA;
+UART_Init.c(18): error:  #20: identifier "GPIO_PORTA_AFSEL_R" is undefined
+        GPIO_PORTA_AFSEL_R |= 0x03;
+UART_Init.c(26): error:  #20: identifier "GPIO_PORTA_PCTL_R" is undefined
+    GPIO_PORTA_PCTL_R = (GPIO_PORTA_PCTL_R & 0xFFFFFF00) + 0x00000011;
+UART_Init.c(30): error:  #20: identifier "UART0_CTL_R" is undefined
+    UART0_CTL_R &= ~UART_CTL_UARTEN;
+UART_Init.c(30): error:  #20: identifier "UART_CTL_UARTEN" is undefined
+    UART0_CTL_R &= ~UART_CTL_UARTEN;
+UART_Init.c(33): error:  #20: identifier "UART0_IBRD_R" is undefined
+    UART0_IBRD_R = UARTIBRD;
+UART_Init.c(36): error:  #20: identifier "UART0_FBRD_R" is undefined
+    UART0_FBRD_R = UARTFBRD;
+UART_Init.c(39): error:  #20: identifier "UART0_LCRH_R" is undefined
+    UART0_LCRH_R = (UART_LCRH_WLEN_8 | UART_LCRH_FEN);
+UART_Init.c(39): error:  #20: identifier "UART_LCRH_WLEN_8" is undefined
+    UART0_LCRH_R = (UART_LCRH_WLEN_8 | UART_LCRH_FEN);
+UART_Init.c(39): error:  #20: identifier "UART_LCRH_FEN" is undefined
+    UART0_LCRH_R = (UART_LCRH_WLEN_8 | UART_LCRH_FEN);
+UART_Init.c(53): error:  #20: identifier "GPIO_PORTA_DEN_R" is undefined
+        GPIO_PORTA_DEN_R |= 0x03;
+UART_Init.c(56): error:  #20: identifier "GPIO_PORTA_AMSEL_R" is undefined
+        GPIO_PORTA_AMSEL_R &= ~0x03;
+UART_Init.c(62): error:  #20: identifier "UART0_FR_R" is undefined
+        while ((UART0_FR_R & UART_FR_RXFE) != 0);
+UART_Init.c(62): error:  #20: identifier "UART_FR_RXFE" is undefined
+        while ((UART0_FR_R & UART_FR_RXFE) != 0);
+UART_Init.c(64): error:  #20: identifier "UART0_DR_R" is undefined
+        return ((char) (UART0_DR_R & 0xFF));
+UART_Init.c(70): error:  #20: identifier "UART0_FR_R" is undefined
+        while ((UART0_FR_R & UART_FR_TXFF) != 0);
+UART_Init.c(70): error:  #20: identifier "UART_FR_TXFF" is undefined
+        while ((UART0_FR_R & UART_FR_TXFF) != 0);
+UART_Init.c(72): error:  #20: identifier "UART0_DR_R" is undefined
+        UART0_DR_R = data;
+UART_Init.c: 0 warnings, 21 errors
+".\ultrasonic.axf" - 70 Error(s), 1 Warning(s).
+Target not created
