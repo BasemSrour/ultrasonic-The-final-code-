@@ -3,8 +3,7 @@
 #include <stdint.h>
 
 // The CPAC register specifies the access privileges for coprocessors
-#define SCB_CPAC          (*((volatile unsigned long*)0xE000ED88)) 
-#define TRIG_PF1          (*((volatile unsigned long*)0x40025008))
+#define SCB_CPAC          (*((volatile unsigned long*)0xE000ED88))
 
 #include "PLL_Init.h"
 #include "SysTick.h"
@@ -12,12 +11,15 @@
 #include "GPIO_Init.h"
 #include "TIMER_Init.h"
 
-void send_Trigger_pulse(void);  // send trigger pulse for 10 micro seconds
+// send trigger pulse for 10 micro seconds to "Trig" pins (PE0, PE1, PE2, PE3, PA2, PA3, PA4, PA5, PA6 & PA7)
+void send_Trigger_pulse(void);
 
 int main(void)
 {
 	unsigned long long pulseWidth; // For calculating the period of the pulse input to the echo pin of the ultrasonic
-	unsigned long long distance = 0;     // For the distance calculation
+	unsigned int distanceInCm = 0;     // For the distance calculation
+	const double eightyMHzOneClockCycle = 0.0000000125;
+	const int ultraSoundSpeedInCmPerS = 34000;
 	unsigned long long i = 0;
 	
 	PLL_Init();     // initializes the PLL to the desired frequency which is 80 MHz
@@ -38,35 +40,38 @@ int main(void)
 		pulseWidth = measureD();
 		
 		// Calculate distance
-		//distance = (pulseWidth * 340) / 2;
-		//distance = distance / 1000000;
+		distanceInCm = ((pulseWidth * eightyMHzOneClockCycle) / 2) * ultraSoundSpeedInCmPerS;
 		
 		// send the data through UART
 		UART_OutDec(++i);
     UART_OutString(": width: ");
 		UART_OutDec(pulseWidth);
 		UART_OutString(", distance: ");
-		UART_OutDec(distance);
-		UART_OutString("\n\r");
+		UART_OutDec(distanceInCm);
+		UART_OutString(" cm\n\r");
 	}
 }
 
 // send trigger pulse for 10 micro seconds
+// "Trig" pins are (PE0, PE1, PE2, PE3, PA2, PA3, PA4, PA5, PA6 & PA7)
 void send_Trigger_pulse(void)
 {
-	// set "Trig" pin (PF1) to low
-	TRIG_PF1 = 0;
+	// set "Trig" pin (PE0, PE1, PE2, PE3, PA2, PA3, PA4, PA5, PA6 & PA7) to low
+	GPIO_PORTA_DATA_R &= ~0xFC;
+	GPIO_PORTE_DATA_R &= ~0x0F;
 		
 	// Waiting for 60 ms
 	SysTick_wait1miliS(60);
 		
-	// Set "Trig" pin (PF1) to High for 10 micro S
-	TRIG_PF1 = 0x02;
+	// Set "Trig" pin (PE0, PE1, PE2, PE3, PA2, PA3, PA4, PA5, PA6 & PA7) to High for 10 micro seconds
+	GPIO_PORTA_DATA_R |= 0xFC;
+	GPIO_PORTE_DATA_R |= 0x0F;
 	// Waiting for 10 micro S
 	SysTick_wait1microS(10);
 		
-	// Set "Trig" pin (PF1) to Low
-	TRIG_PF1 = 0;
+	// Set "Trig" pin (PE0, PE1, PE2, PE3, PA2, PA3, PA4, PA5, PA6 & PA7) to Low
+	GPIO_PORTA_DATA_R &= ~0xFC;
+	GPIO_PORTE_DATA_R &= ~0x0F;
 }
 
 void SystemInit(void)
